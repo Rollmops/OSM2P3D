@@ -59,5 +59,5 @@ class TreeModel(QAbstractItemModel):
         if(orientation, role) == (Qt.Horizontal, Qt.DisplayRole):
             return QVariant("Regions")
 
-    def setData(self, QModelIndex, QVariant, int_role=None):
-        return True
+    def setData(self, index, value, role):
+        return super(TreeModel, self).setData(index, value, role)

@@ -5,14 +5,17 @@ class OSMTreeItem:
         self.parent = parent
         self.row = row
         self.element = element
-        self.display = (element[0], None)
+        self.check_state = Qt.Checked
         if depth == 0:
             self.children = [OSMTreeItem(self, i, value, depth+1) for i, value in enumerate(element[1])]
-            self.display = (element, "blubb")
+            self.display = element[0]
         else:
             self.children = []
+            self.display = element
 
-
+    def setCheckState(self, checked):
+        self.check_state = checked
+        [c.setCheckState(checked) for c in self.children]
 
 
 class OSMTreeViewModel(QAbstractItemModel):
@@ -40,7 +43,7 @@ class OSMTreeViewModel(QAbstractItemModel):
             return self.createIndex(node.parent.row, 0, node.parent)
 
     def columnCount(self, parent):
-        return 2
+        return 1
 
     def rowCount(self, parent):
         if not parent.isValid():
@@ -53,19 +56,26 @@ class OSMTreeViewModel(QAbstractItemModel):
             return QVariant()
         node = index.internalPointer()
         if role == Qt.DisplayRole:
-            return node.display[index.column()]
+            return node.display
+        elif role == Qt.CheckStateRole:
+            return node.check_state
         return QVariant()
 
     def flags(self, index):
         if not index.isValid():
             return None
-        return Qt.ItemIsEnabled | Qt.ItemIsSelectable
+        return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsUserCheckable | Qt.ItemIsTristate
 
     def headerData(self, section, orientation, role):
         if (orientation, role) == (Qt.Horizontal, Qt.DisplayRole):
-            return ["OSM Entity", "Description"][section]
+            return QVariant("OSM Entity")
         return QVariant()
 
 
-    def setData(self, QModelIndex, QVariant, int_role=None):
+    def setData(self, index, value, role):
+        if not index.isValid():
+            return False
+        if role == Qt.CheckStateRole or role:
+            index.internalPointer().setCheckState(value)
+            self.dataChanged.emit(index, self.createIndex(1,0))
         return True

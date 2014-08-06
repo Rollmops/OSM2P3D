@@ -3,6 +3,7 @@
         <node name="wind_turbine" key="generator:source" value="wind">
             <libraryObject>7e6ceef0-7ff4-4738-898f-293e4a5fedb6</libraryObject>
         </node>
+        <node name="wind_turbine2"/>
     </nodes>
     <relations name="OSM Relations">
         <relation name="test">
