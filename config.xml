@@ -1,0 +1,28 @@
+<config>
+    <download>
+        <baseUrl>http://download.geofabrik.de</baseUrl>
+        <suffix name="pbf">-latest.osm.pbf</suffix>
+        <continents>
+            <continent name="Africa" url="africa">
+                <country name="Botswana" url="africa/botswana" />
+                <country name="Burkina Faso" url="africa/burkina-faso" />
+                <country name="Cameroon" url="africa/cameroon" />
+                <country name="Canary Islands" url="africa/canary-islands"/>
+                <country name="Congo (Democratic Republic)" url="africa/congo-democratic-republic"/>
+                <country name="Egypt" url="africa/egypt"/>
+                <country name="Ethiopia" url="africa/ethiopia"/>
+                <country name="Guinea" url="africa/guinea"/>
+                <country name="Guinea-Bissau" url="africa/guinea-bissau"/>
+            </continent>
+            <continent name="Antarctica" url="antarctica"></continent>
+            <continent name="Asia" url="asia"></continent>
+            <continent name="Australia and Oceania" url="australia-oceania"></continent>
+            <continent name="Central America" url="central-america"></continent>
+            <continent name="Europe" url="europe">
+                <country name="Germany" url="europe/germany"/>
+            </continent>
+            <continent name="North America" url="north-america"></continent>
+            <continent name="South America" url="south-america"></continent>
+        </continents>
+    </download>
+</config>
