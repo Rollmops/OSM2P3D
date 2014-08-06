@@ -1,7 +1,10 @@
-from PyQt4.QtGui import QApplication
-from widgets.main_window import MainWindow
 from optparse import OptionParser
 import sys
+
+from PyQt4.QtGui import QApplication
+
+from src.widgets.main_window import MainWindow
+
 
 if __name__ == '__main__':
 

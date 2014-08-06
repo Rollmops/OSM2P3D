@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-resources_xml = ET.parse("resources.xml").getroot()
+resources_xml = ET.parse("src/resources/resources.xml").getroot()
 
 
 def get():
