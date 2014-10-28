@@ -13,8 +13,10 @@
 # limitations under the License.
 
 from __future__ import with_statement
-from xml.etree import cElementTree as ET
+
 from contextlib import contextmanager
+from xml.etree import cElementTree as ET
+
 
 def iterparse(fileobj):
     """

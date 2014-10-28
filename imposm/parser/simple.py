@@ -14,12 +14,11 @@
 
 from __future__ import with_statement
 
-import multiprocessing
-import threading
-import sys
-import time
-
 from Queue import Empty
+import multiprocessing
+import sys
+import threading
+import time
 
 from imposm.parser.util import default_concurrency, fileinput, setproctitle
 

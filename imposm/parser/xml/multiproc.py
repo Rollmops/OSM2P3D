@@ -12,14 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from Queue import Empty
 import mmap
 import multiprocessing
 import re
 
-from Queue import Empty
-
-from imposm.parser.xml.parser import XMLParser
 from imposm.parser.util import setproctitle
+from imposm.parser.xml.parser import XMLParser
+
 
 KiB = 1024
 MiB = 1024*KiB

@@ -14,8 +14,10 @@
 # limitations under the License.
 
 import os
+
 from imposm.parser import OSMParser
 from nose.tools import eq_
+
 
 class ParserTestBase(object):
     osm_filename = None

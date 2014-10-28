@@ -14,14 +14,15 @@
 
 from __future__ import with_statement
 
+from marshal import dumps
+import mmap
 import struct
 import sys
+import time
 import zlib
-import mmap
-
-from marshal import dumps
 
 from imposm.parser.pbf import OSMPBF
+
 
 SUPPORTED_FEATURES = set(['OsmSchema-V0.6', 'DenseNodes'])
 
@@ -301,7 +302,6 @@ def read_blob_data(filename, blob_pos, blob_size):
         return raw_data
     return zlib.decompress(blob.zlib_data)
 
-import time
 
 class PBFFile(object):
     """

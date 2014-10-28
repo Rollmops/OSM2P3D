@@ -18,6 +18,7 @@ from marshal import dumps
 
 from imposm.parser.xml.util import log_file_on_exception, iterparse
 
+
 class XMLParser(object):
     def __init__(self, nodes_callback=None, ways_callback=None,
         relations_callback=None, coords_callback=None, nodes_tag_filter=None,
